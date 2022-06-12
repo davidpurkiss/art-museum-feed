@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`service objects fetches objects from the harvard art museum api 1`] = `
+Object {
+  "data": Object {
+    "objects": Array [
+      Object {
+        "title": "Jack Ashore",
+      },
+      Object {
+        "title": "The Old Middlesex",
+      },
+      Object {
+        "title": "In Memoriam T. W. Barrett",
+      },
+      Object {
+        "title": "La Gaîeté Rochechouart",
+      },
+      Object {
+        "title": "Grotesque Face Mask",
+      },
+      Object {
+        "title": "The Venetian Lady in Masquerade Dress",
+      },
+      Object {
+        "title": "The Willow Tree",
+      },
+      Object {
+        "title": "That Which Must Not Come; Threat over Mexico",
+      },
+      Object {
+        "title": "Cavalry Charge (first version)",
+      },
+      Object {
+        "title": "Hercules Slaying Discord",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
