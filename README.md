@@ -82,6 +82,9 @@ Without having any infrastructure to run on it's hard to bring in logging and mo
 
 Similarly, HTTP metrics can be collected about the services and used to monitor them. You can write alerts based on 5XX HTTP responses or explicit metrics that are written out from the service.
 
+#### Test Coverage
+Check test coverage and add to build checks.
+
 ### Backend
 
 #### Formalise error handling for REST API's

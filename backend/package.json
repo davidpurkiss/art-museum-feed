@@ -9,6 +9,7 @@
     "lint": "eslint ./src",
     "lint:build": "eslint",
     "test": "jest",
+    "coverage": "jest --coverage --collectCoverageFrom=\"./src/**/*.ts\"",
     "build": "tsc --project tsconfig.json",
     "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn src/index.ts"
