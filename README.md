@@ -86,6 +86,10 @@ Similarly, HTTP metrics can be collected about the services and used to monitor 
 Check test coverage and add to build checks.
 
 ### Backend
+- Tech Stack:
+  - TypeScript
+  - Apollo Server
+  - Jest + Nock + Supertest
 
 #### Formalise error handling for REST API's
 - Create function, move to common location and test.
@@ -134,6 +138,11 @@ This would help on the front-end for keys and testing.
 Add additional integration tests to test graphQL variables and errors.
 
 ### Frontend
+- Tech Stack:
+  - TypeScript
+  - NextJS
+  - Material UI
+  - Jest + React Testing Library
 
 #### Integration/e2e tests
 I would add one or two cypress tests to test the integration between the front-end and the backend. This would require stubbing out the Harvard Art Museum API so that it returns mock data so that the tests aren't flaky.
