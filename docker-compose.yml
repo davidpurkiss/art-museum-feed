@@ -1,0 +1,27 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  front-end:
+    build:
+      dockerfile: .
+      context: ./frontend
+      target: builder
+    command: yarn start
+    environment:
+      - NEXT_PUBLIC_BACKEND_BASE_URL
+    ports:
+      - "3000:3000"
+    links:
+      - backend
+    depends_on:
+      - backend
+  backend:
+    build:
+      dockerfile: .
+      context: ./backend
+      target: builder
+    command: yarn start
+    environment:
+      - HARVARD_ART_MUSEUM_BASE_URL
+      - HARVARD_ART_MUSEUM_API_KEY
+    ports:
+      - "4000:4000"
