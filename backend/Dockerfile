@@ -5,11 +5,13 @@ FROM node:fermium-alpine AS builder
 
 WORKDIR /home/build/app
 
-COPY package.json yarn.lock tsconfig.json ./
+COPY package.json yarn.lock tsconfig.json jest.config.js ./
 COPY ./src/ ./src
 
 RUN yarn install --frozen-lockfile --non-interactive --quiet
 
+RUN yarn lint:build
+RUN yarn test
 RUN yarn build
 
 # Production Run Stage
@@ -23,4 +25,4 @@ COPY --from=builder /home/build/app/dist ./dist
 
 RUN yarn --production --quiet
 
-CMD ["yarn", "node", "--enable-source-maps", "./dist/index.js"]
+CMD ["yarn", "start"]

@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 export interface Config {
   harvardArtMuseum: {
     baseUrl: string;
@@ -8,8 +10,10 @@ export interface Config {
 
 const config: Config = {
   harvardArtMuseum: {
-    baseUrl: process.env.HARARD_ART_MUSEUM_BASE_URL,
-    apiKey: process.env.HARARD_ART_MUSEUM_API_KEY,
+    baseUrl:
+      process.env.HARVARD_ART_MUSEUM_BASE_URL ||
+      'https://api.harvardartmuseums.org',
+    apiKey: process.env.HARVARD_ART_MUSEUM_API_KEY,
   },
   enableCsrfPrevention: true,
 };

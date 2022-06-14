@@ -1,5 +1,6 @@
 import nock from 'nock';
 import request from 'supertest';
+import { gql } from 'apollo-server';
 import server from '../server';
 import mockObjects from './fixtures/harvardArtMuseum/objects.json';
 import config from '../config';
@@ -43,7 +44,34 @@ describe('service', () => {
   describe('objects', () => {
     it('fetches objects from the harvard art museum api', async () => {
       const res = await server.executeOperation({
-        query: `query getBooks($page: Int, $size: Int) { objects(page: $page, size: $size) { title } }`,
+        query: gql`
+          query getBooks($page: Int, $size: Int) {
+            objects(page: $page, size: $size) {
+              records {
+                title
+                technique
+                century
+                dated
+                culture
+                people {
+                  displayname
+                  role
+                  birthplace
+                  displaydate
+                  culture
+                  gender
+                }
+                images {
+                  date
+                  baseimageurl
+                }
+              }
+              info {
+                pages
+              }
+            }
+          }
+        `,
         variables: { page: 1, size: 10 },
       });
       expect(res).toMatchSnapshot();

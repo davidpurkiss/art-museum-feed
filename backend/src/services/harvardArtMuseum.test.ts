@@ -43,16 +43,14 @@ describe('HarvardArtMuseumService', () => {
       );
     });
 
-    it('returns "records" from the response body', async () => {
-      const records = [{ test: 'test' }];
-      mockNodeFetch(true, {
-        records,
-      });
+    it('returns the response body', async () => {
+      const mockResponse = { records: [{ test: 'test' }] };
+      mockNodeFetch(true, mockResponse);
       const response = await service.getObjects();
       expect(fetch).toHaveBeenCalledWith(
         'http://test-url.com/object?apikey=123-abc'
       );
-      expect(response).toEqual(records);
+      expect(response).toEqual(mockResponse);
     });
 
     it('throws an error when a non-ok response is returned', async () => {

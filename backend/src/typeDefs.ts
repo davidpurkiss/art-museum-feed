@@ -22,7 +22,7 @@ const typeDefs = gql`
   type Object {
     title: String
     technique: String
-    date: String
+    dated: String
     century: String
     culture: String
     url: String
@@ -30,8 +30,20 @@ const typeDefs = gql`
     images: [Image]
   }
 
+  type QueryInfo {
+    totalrecordsperquery: Int
+    totalrecords: Int
+    pages: Int
+    page: Int
+  }
+
+  type ObjectQueryResult {
+    records: [Object]
+    info: QueryInfo
+  }
+
   type Query {
-    objects(size: Int, page: Int): [Object]
+    objects(size: Int, page: Int): ObjectQueryResult
   }
 `;
 

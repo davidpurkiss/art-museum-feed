@@ -30,8 +30,7 @@ export default class HarvardArtMuseumService {
     );
 
     if (response.ok) {
-      const json = await response.json();
-      return json.records;
+      return response.json();
     }
 
     throw new Error(
